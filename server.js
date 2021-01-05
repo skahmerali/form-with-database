@@ -1,8 +1,13 @@
+
+var PORT = process.env.PORT || 3000;
+
+
 var express = require("express");
 var bodyParser = require('body-parser');
 var cors = require("cors");
 var morgan = require("morgan");
 const mongoose = require("mongoose");
+const path = require("path");
 
 
 let dbURI = "mongodb+srv://ahmerali:ahmerali@cluster0.slkv6.mongodb.net/ahmerali?retryWrites=true&w=majority";
@@ -52,10 +57,12 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use(morgan('dev'));
 
+// app.use("/", express.static(path.resolve(path.join(__dirname, "public"))));
+
 
 app.post("/signup", (req, res, next) => {
 
-    if (!req.body.name
+    if (   !req.body.name
         || !req.body.email
         || !req.body.password
         || !req.body.phone
