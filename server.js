@@ -1,5 +1,5 @@
 
-var PORT = process.env.PORT || 3000;
+// var PORT = process.env.PORT || 3000;
 
 
 var express = require("express");
@@ -10,7 +10,7 @@ const mongoose = require("mongoose");
 const path = require("path");
 
 
-let dbURI = "mongodb+srv://ahmerali:ahmerali@cluster0.slkv6.mongodb.net/ahmerali?retryWrites=true&w=majority";
+let dbURI = "mongodb+srv://ahmerali:ahmerali@cluster0.slkv6.mongodb.net/ahmerali";
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 
@@ -57,7 +57,7 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use(morgan('dev'));
 
-// app.use("/", express.static(path.resolve(path.join(__dirname, "public"))));
+app.use("/", express.static(path.resolve(path.join(__dirname, "public"))));
 
 
 app.post("/signup", (req, res, next) => {
@@ -65,7 +65,7 @@ app.post("/signup", (req, res, next) => {
     if (   !req.body.name
         || !req.body.email
         || !req.body.password
-        || !req.body.phone
+        || !req.body.number
         || !req.body.gender) {
 
         res.status(403).send(`
@@ -78,6 +78,8 @@ app.post("/signup", (req, res, next) => {
                 "phone": "03001234567",
                 "gender": "Male"
             }`)
+            console.log("noman khan")
+            
         return;
     }
 

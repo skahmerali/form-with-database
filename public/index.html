@@ -1,21 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-    <form onsubmit="abc()">
-    <input type="text" id="name">
-    <input type="email" id="email">
-    <input type="password" id="password">
-    <input type="text" id="number">
-    <select name="gender" id="gender">
-        <option value="male">male</option>
-        <option value="female">Female</option>
-    </select>
 
+<body>
+    <form onsubmit="return abc()">
+        <input type="text" id="name" placeholder="enter ur correct name">
+        <input type="email" id="email" placeholder="enter ur email">
+        <input type="password" id="password" placeholder="enter correct password">
+        <input type="text" id="number" placeholder="enter phone number">
+        <select id="gender" placeholder="select gender please ">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+        <button>signup</button>
     </form>
+
+
+
+
+    <script src="app.js"></script>
 </body>
+
 </html>
